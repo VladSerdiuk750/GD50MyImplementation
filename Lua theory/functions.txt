@@ -1,0 +1,24 @@
+love.load()
+- Used for initializing game state.
+
+love.update(dt)
+- Called each frame. dt is delta time.
+
+love.draw()
+- Called each frame after update for drawing.
+
+love.graphics.printf(text, x, y, [width], [align])
+- Print text.
+
+love.window.setMode(width, height, params)
+- to initialize window dimensions and set params
+
+love.graphics.setDefaultFilter(min, mag)
+- Sets the texture scaling filter.
+
+love.keypressed(key)
+- function for reaction on pressed some key.
+
+love.event.quit()
+- quiting
+
