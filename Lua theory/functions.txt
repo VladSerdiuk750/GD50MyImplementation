@@ -22,3 +22,17 @@ love.keypressed(key)
 love.event.quit()
 - quiting
 
+love.graphics.newFont(path, size)
+- loads a font file.
+
+love.graphics.setFont(font)
+- sets font.
+
+love.graphics.clear(r/255, g/255, b/255, a/255)
+- wipes screen with a color.
+
+love.graphics.rectangle(mode, x, y, width, height)
+- draws rectangle.
+
+love.keyboard.isDown(key)
+true of false if some key is held down
