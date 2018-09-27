@@ -36,3 +36,15 @@ love.graphics.rectangle(mode, x, y, width, height)
 
 love.keyboard.isDown(key)
 true of false if some key is held down
+
+math.randomseed(num)
+random generator
+
+os.time()
+number in second since 00:00:00 January 1, 1970
+
+math.random(min, max)
+randomizer
+
+math.min(num1,num2)
+math.max(num1,num2)
