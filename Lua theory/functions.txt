@@ -54,3 +54,5 @@ love.window.setTitle(title)
 love.timer.getFPS()
 
 love.audio.newSourse(path, [type])
+
+love.resize(width, height)
