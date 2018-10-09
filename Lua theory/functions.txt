@@ -48,3 +48,7 @@ randomizer
 
 math.min(num1,num2)
 math.max(num1,num2)
+
+love.window.setTitle(title)
+
+love.timer.getFPS()
