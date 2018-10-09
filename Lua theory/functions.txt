@@ -52,3 +52,5 @@ math.max(num1,num2)
 love.window.setTitle(title)
 
 love.timer.getFPS()
+
+love.audio.newSourse(path, [type])
