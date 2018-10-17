@@ -1,0 +1,2 @@
+love.graphics.newImage(path)
+
