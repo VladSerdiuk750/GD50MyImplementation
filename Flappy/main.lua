@@ -2,18 +2,18 @@ push = require 'push'
 
 Class = require 'class'
 
-require 'Bird'
-
-require 'Pipe'
-
-require 'PipePair'
-
 require 'StateMachine'
+
 require 'states/BaseState'
 require 'states/CountdownState'
 require 'states/PlayState'
 require 'states/ScoreState'
 require 'states/TitleScreenState'
+
+
+require 'Bird'
+require 'Pipe'
+require 'PipePair'
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -32,13 +32,13 @@ local GROUND_SCROLL_SPEED = 60
 
 local BACKGROUND_LOOPING_POINT = 413
 
-local GROUND_LOOPING_POINT = 514
-
-local scrolling = true
+scrolling = true
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
     
+    math.randomseed(os.time())
+
     love.window.setTitle('Fifty Bird')
 
     smallFont = love.graphics.newFont('font.ttf', 8)
@@ -74,6 +74,8 @@ function love.load()
     gStateMachine:change('title')
 
     love.keyboard.keyspressed = {}
+
+    love.mouse.buttonsPressed = {}
 end
 
 function love.resize(w, h)
@@ -88,24 +90,28 @@ function love.keypressed(key)
     end
 end
 
+function love.mousepressed(x, y, button)
+    love.mouse.buttonsPressed[button] = true
+end
+
 function love.keyboard.wasPressed(key)
-    if love.keyboard.keyspressed[key] then
-        return true
-    else
-        return false
-    end
+    return love.keyboard.keyspressed[key]
+end
+
+function love.mouse.wasPressed(button)
+    return love.mouse.buttonsPressed[button]
 end
 
 function love.update(dt) 
-    backgroundScroll = (backgroundScroll + BACKGROUND_SCROLL_SPEED * dt)
-        % BACKGROUND_LOOPING_POINT
-        
-    groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt)
-        % GROUND_LOOPING_POINT
+    if scrolling then
+        backgroundScroll = (backgroundScroll + BACKGROUND_SCROLL_SPEED * dt) % BACKGROUND_LOOPING_POINT
+        groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt) % VIRTUAL_WIDTH
+    end
 
     gStateMachine:update(dt)
 
     love.keyboard.keyspressed = {}
+    love.mouse.buttonsPressed = {}
 end
 
 function love.draw()
@@ -113,7 +119,6 @@ function love.draw()
 
     love.graphics.draw(background, -backgroundScroll, 0)
     gStateMachine:render()
-
     love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 16)
     
     -- bird:render()

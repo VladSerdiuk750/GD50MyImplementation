@@ -3,6 +3,8 @@ PipePair = Class{}
 local GAP_HEIGHT = 90
 
 function PipePair:init(y)
+    self.scored = false
+
     self.x = VIRTUAL_WIDTH + 32
    
     self.y = y
@@ -13,8 +15,6 @@ function PipePair:init(y)
     }
 
     self.remove = false
-
-    self.scored = false
 end
 
 function PipePair:update(dt)
@@ -28,7 +28,7 @@ function PipePair:update(dt)
 end
 
 function PipePair:render()
-    for k, pipe in pairs(self.pipes) do
+    for l, pipe in pairs(self.pipes) do
         pipe:render()
     end
 end
