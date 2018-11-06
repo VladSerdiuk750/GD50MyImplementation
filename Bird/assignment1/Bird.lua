@@ -41,6 +41,14 @@ function Bird:collides(pipe)
     return false
 end
 
+function Bird:isBetweenPipes(pipe)
+    if (self.x + 2) + (self.width - 4) >= pipe.x and self.x + 2 <= pipe.x + PIPE_WIDTH then
+        return true
+    else 
+        return false
+    end
+end
+
 function Bird:update(dt)
     self.dy = self.dy + GRAVITY * dt
 
