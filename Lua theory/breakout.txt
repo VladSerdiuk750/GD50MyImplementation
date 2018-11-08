@@ -1,0 +1,9 @@
+love.graphics.newQuad(x, y, width, height, dimensions)
+- Specify rectangle boundaries of our Quad and pass in the dimensions
+  (returned via image:getDimensions on whichever texture we want to make a
+  Quad for).
+
+love.graphics.draw(texture, quad, x, y)
+- Variant of love.graphics.draw, which we've seen, but this time we can pass
+  in a Quad to draw just the specific part of the texture we want, not the 
+  entire thing!
