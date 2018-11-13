@@ -7,3 +7,7 @@ love.graphics.draw(texture, quad, x, y)
 - Variant of love.graphics.draw, which we've seen, but this time we can pass
   in a Quad to draw just the specific part of the texture we want, not the 
   entire thing!
+
+love.graphics.newParticleSystem(texture, particles)
+- Takes in a particle texture and maximum number of particles we can emit and
+creates a particle system we can emit from, update, and render.
