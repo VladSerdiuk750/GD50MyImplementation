@@ -11,3 +11,17 @@ love.graphics.draw(texture, quad, x, y)
 love.graphics.newParticleSystem(texture, particles)
 - Takes in a particle texture and maximum number of particles we can emit and
 creates a particle system we can emit from, update, and render.
+
+love.filesystem.setIdentity(identity)
+- Sets the active subfolder in the default LOVE save directory for reading and 
+  writing files to.
+
+love.filesystem.exists(path)
+- Check if a file exists in our save directory.
+
+love.filesystem.write(path, data)
+- Writes data, as a string, to the file location at path.
+
+love.filesystem.lines(path)
+- Returns an iterator over the string lines in a file at path, located in our
+  active identity path.
